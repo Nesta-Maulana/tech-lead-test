@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Conversion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            padding: 5px;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin-top: 10px;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>12-hour to 24-hour Time Conversion</h1>
+    <label for="timeInput">Enter time in 12-hour format (hh:mm:ssAM/PM):</label>
+    <input type="text" id="timeInput" placeholder="12:00:00AM">
+    <br><br>
+    <button onclick="convertTime()">Convert</button>
+    <p id="result"></p>
+    <script>
+        function convertTime() {
+            // Ambil input waktu dari pengguna
+            const time12hr = document.getElementById('timeInput').value.trim();
+
+            // Fungsi untuk mengonversi waktu 12-jam ke 24-jam
+            function timeConversion(s) {
+                const period = s.slice(-2);
+                let [hours, minutes, seconds] = s.slice(0, -2).split(':');
+
+                if (period === 'AM') {
+                    if (hours === '12') {
+                        hours = '00';
+                    }
+                } else {
+                    if (hours !== '12') {
+                        hours = (parseInt(hours, 10) + 12).toString();
+                    }
+                }
+
+                return `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}:${seconds.padStart(2, '0')}`;
+            }
+
+            // Regex untuk memvalidasi format input waktu 12-jam
+            const timeFormat = /^(0[1-9]|1[0-2]):([0-5][0-9]):([0-5][0-9])(AM|PM)$/i;
+
+            if (!timeFormat.test(time12hr)) {
+                document.getElementById('result').innerText = 'Invalid time format. Please use hh:mm:ssAM/PM.';
+                document.getElementById('result').className = 'error';
+                return;
+            }
+
+            // Hasil konversi
+            const time24hr = timeConversion(time12hr);
+
+            // Tampilkan hasil di halaman
+            document.getElementById('result').innerText = `24-hour format: ${time24hr}`;
+            document.getElementById('result').className = '';
+        }
+    </script>
+
+</body>
+
+</html>

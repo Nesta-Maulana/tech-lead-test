@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Solving Basic - Test 1 MiniMaxSum</title>
+</head>
+
+<body>
+    <h1>Problem Solving Basic - Test 1 MiniMaxSum Calculator</h1>
+    <input type="text" id="inputArray" placeholder="Enter 5 space-separated integers">
+    <button onclick="calculateMiniMaxSum()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById('inputArray').addEventListener('input', function (e) {
+            const sanitizedValue = e.target.value.replace(/[^0-9 ]/g, '');
+            e.target.value = sanitizedValue;
+        });
+
+        function calculateMiniMaxSum() {
+            // input dari pengguna
+            const input = document.getElementById('inputArray').value;
+
+            // format input menjadi array bilangan bulat
+            const arr = input.split(' ').map(Number);
+
+            // validate input ada 5 
+            if (arr.length !== 5) {
+                document.getElementById('result').innerText = 'Please enter exactly 5 integers.';
+                return;
+            }
+
+            // hitung total dari 5 array
+            let totalSum = arr.reduce((a, b) => a + b, 0);
+
+            // ambil jumlah minimum
+            let minSum = totalSum - Math.max(...arr);
+
+            // ambil jumlah maximum
+            let maxSum = totalSum - Math.min(...arr);
+
+            // print
+            document.getElementById('result').innerText = `Min Sum: ${minSum}, Max Sum: ${maxSum}`;
+        }
+    </script>
+
+</body>
+
+</html>

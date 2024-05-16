@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlusMinus Ratio Calculator</title>
+</head>
+
+<body>
+    <h1>PlusMinus Ratio Calculator</h1>
+    <label for="arraySize">Enter the size of the array:</label>
+    <input type="number" id="arraySize" min="1" max="100" placeholder="Enter array size">
+    <br><br>
+    <label for="arrayValues">Enter the array values (space-separated integers):</label>
+    <input type="text" id="arrayValues" placeholder="Enter array values">
+    <br><br>
+    <button onclick="calculatePlusMinus()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function calculatePlusMinus() {
+            // Ambil input ukuran array
+            const arraySize = parseInt(document.getElementById('arraySize').value);
+
+            // Ambil input nilai array
+            const input = document.getElementById('arrayValues').value;
+            const arr = input.split(' ').map(Number);
+
+            // check apakah array input dengan array value sesuai ukurannya 
+            if (arr.length !== arraySize) {
+                document.getElementById('result').innerText = 'Array size does not match the number of elements.';
+                return;
+            }
+
+            // counter insitiation
+            let positiveCount = 0;
+            let negativeCount = 0;
+            let zeroCount = 0;
+
+            // hitung value sesuai aturan
+            arr.forEach(num => {
+                if (num > 0) {
+                    positiveCount++;
+                } else if (num < 0) {
+                    negativeCount++;
+                } else {
+                    zeroCount++;
+                }
+            });
+
+            // Hitung rasio
+            const total = arr.length;
+            const positiveRatio = (positiveCount / total).toFixed(6);
+            const negativeRatio = (negativeCount / total).toFixed(6);
+            const zeroRatio = (zeroCount / total).toFixed(6);
+
+            document.getElementById('result').innerHTML =
+                `Positive Ratio: ${positiveRatio}<br>
+                Negative Ratio: ${negativeRatio}<br>
+                Zero Ratio: ${zeroRatio}`;
+        }
+    </script>
+</body>
+
+</html>
