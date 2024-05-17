@@ -1,0 +1,24 @@
+1. Backend Test 
+-> setting .env pada folder backend-test-1 sesuai dengan enviroment local anda
+-> jalankan di terminal ```cd backend-test-1```
+-> jalankan ```npm install```
+-> Lalu jalankan ```npx sequelize-cli db:migrate```
+-> Lalu jalankan ```npx jest```, jika test sudah selesai stop terminal lalu 
+-> Jalankan ```node app.js``` untuk running application
+-> postman collection diakses di ```https://documenter.getpostman.com/view/12716985/2sA3JT3JUd```
+
+
+2. To Do App Front end 
+-> jalankan di terminal ```cd todo-app```
+-> jalankan di terminal ``` npm install -g json-server ```
+-> jalankan ```npm install```
+-> Jalankan ```npm run server``` untuk running server database
+-> Jalankan ```npm start``` di terminal terpisah untuk running aplikasi
+
+
+3. To Do App Flutter 
+-> jalankan di terminal ```cd todo_app_mobile```
+-> jalankan di terminal ```flutter pub get```
+-> jalankan ```flutter run```
+
+
