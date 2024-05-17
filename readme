@@ -1,25 +1,44 @@
-1. Backend Test 
--> setting .env pada folder backend-test-1 sesuai dengan enviroment local anda
--> jalankan di terminal ```cd backend-test-1```
--> jalankan ```npm install```
--> Lalu jalankan ```npx sequelize-cli db:migrate```
--> Lalu jalankan ```npx jest```, jika test sudah selesai stop terminal lalu 
--> Jalankan ```node app.js``` untuk running application
--> postman collection diakses di ```https://documenter.getpostman.com/view/12716985/2sA3JT3JUd```
+### Backend Test
 
+1. **Setting Environment:**
+   - Pastikan file `.env` pada folder `backend-test-1` sudah diset sesuai dengan environment lokal Anda.
 
-2. To Do App Front end 
--> jalankan di terminal ```cd todo-app```
--> jalankan di terminal ``` npm install -g json-server ```
--> jalankan ```npm install```
--> Jalankan ```npm run server``` untuk running server database
--> Jalankan ```npm start``` di terminal terpisah untuk running aplikasi
+2. **Instalasi Dependencies:**
+   - Buka terminal dan arahkan ke folder `backend-test-1`.
+   - Jalankan perintah `npm install` untuk menginstal semua dependencies.
 
+3. **Migrate Database:**
+   - Setelah dependencies terinstal, jalankan perintah `npx sequelize-cli db:migrate` untuk melakukan migrasi database.
 
-3. To Do App Flutter 
--> jalankan di terminal ```cd todo_app_mobile```
--> jalankan di terminal ```flutter pub get```
--> jalankan ```flutter run```
+4. **Jalankan Test:**
+   - Setelah migrasi selesai, jalankan perintah `npx jest` untuk menjalankan test. Jika test sudah selesai, hentikan terminal.
 
+5. **Jalankan Aplikasi:**
+   - Terakhir, jalankan perintah `node app.js` untuk menjalankan aplikasi.
 
-4. untuk test lainnya ada pada root folder
+6. **Postman Collection:**
+   - Postman collection dapat diakses di [link ini](https://documenter.getpostman.com/view/12716985/2sA3JT3JUd).
+
+### To Do App Frontend
+
+1. **Instalasi dan Persiapan Database:**
+   - Buka terminal dan arahkan ke folder `todo-app`.
+   - Jalankan perintah `npm install -g json-server` untuk menginstal JSON Server secara global.
+   - Selanjutnya, jalankan `npm install` untuk menginstal semua dependencies.
+   - Jalankan `npm run server` untuk menjalankan server database.
+
+2. **Jalankan Aplikasi:**
+   - Di terminal yang berbeda, jalankan perintah `npm start` untuk menjalankan aplikasi frontend.
+
+### To Do App Flutter
+
+1. **Persiapan Flutter Project:**
+   - Buka terminal dan arahkan ke folder `todo_app_mobile`.
+   - Jalankan perintah `flutter pub get` untuk menginstal semua dependencies.
+
+2. **Jalankan Aplikasi:**
+   - Terakhir, jalankan perintah `flutter run` untuk menjalankan aplikasi Flutter.
+
+### Test Lainnya
+
+Untuk test lainnya, Anda dapat menemukannya di root folder.
